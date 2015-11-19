@@ -8,7 +8,7 @@ var popularRepoURL = repoSearchURL + 'q=created:>' + moment().subtract(30, 'days
 $(document).ready( function() {
 	$.get( popularRepoURL, function (data) {
 		console.log(data);
-		_.each(data.items, function(item) {
+		_.each(data.items.slice(0,10), function(item) {
 			$('#repo-list').append('<div>' + item.name + '</div>');
 		})
 	});
